@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  font-family: "Poppins", sans-serif;
+}
+
+ul{
+  list-style: none;
+}
+
+.container {
+  width: 82%;
+  margin: auto;
+}
+
+.flex-box{
+  display: flex;
+  column-gap: 60px;
+}
+
+.flex-box_inside{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
