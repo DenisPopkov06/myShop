@@ -1,0 +1,11 @@
+.flex-box{
+  display: flex;
+  column-gap: 60px;
+}
+
+.flex-box_inside{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
