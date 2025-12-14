@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setActive, setValue } from "../../redux/slices/headerSlice";
 
 import cart from "./icons/cart.png";
-import like from "./icons/like.png";
+import like from "../../img/like.png";
 import searching from "./icons/searching.png";
 import styles from "./header.module.css";
 

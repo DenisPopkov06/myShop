@@ -25,7 +25,10 @@ const Footer = () => {
         <p>Get 10% off your first order</p>
         <form onSubmit={(e) => e.preventDefault()}>
           <input placeholder="Enter your email" />
-          <button> <img src={arrow} alt="arrow"/></button>
+          <button>
+            {" "}
+            <img src={arrow} alt="arrow" />
+          </button>
         </form>
       </div>
       <div>

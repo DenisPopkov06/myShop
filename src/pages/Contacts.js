@@ -1,6 +1,3 @@
-import phones from "../img/contacts-phone.png";
-import mail from "../img/contacts-mail.png";
-import "../css/contacts.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setName,
@@ -8,6 +5,9 @@ import {
   setPhone,
   setMessage,
 } from "../redux/slices/contactSlice";
+import phones from "../img/contacts-phone.png";
+import mail from "../img/contacts-mail.png";
+import "../css/contacts.css";
 
 const Contacts = () => {
   const name = useSelector((state) => state.contactReducer.name);
@@ -17,12 +17,12 @@ const Contacts = () => {
   const dispatch = useDispatch();
 
   const onSubmitBtn = (event) => {
-    event.preventDefault()
-    dispatch(setName(""))
-    dispatch(setEmail(""))
-    dispatch(setPhone(""))
-    dispatch(setMessage(""))
-  }
+    event.preventDefault();
+    dispatch(setName(""));
+    dispatch(setEmail(""));
+    dispatch(setPhone(""));
+    dispatch(setMessage(""));
+  };
 
   return (
     <div className="contacts-container">
@@ -80,6 +80,7 @@ const Contacts = () => {
               required
               value={phone}
               onChange={(e) => dispatch(setPhone(e.target.value))}
+              pattern="[0-9]*"
             />
             <textarea
               placeholder="Your Message"
@@ -92,7 +93,6 @@ const Contacts = () => {
             Send Message
           </button>
         </div>
-        <div></div>
       </div>
     </div>
   );
