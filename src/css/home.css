@@ -18,6 +18,8 @@
   column-gap: 30px;
   row-gap: 65px;
   margin-bottom: 80px;
+  overflow-y: scroll;
+  height: 85vh;
 }
 
 .product {

@@ -8,18 +8,34 @@ import like from "../img/like.png";
 import star from "../img/product-raiting.png";
 import "../css/home.css";
 
+function parseData(arr) {
+  let res = [];
+  let id = 0;
+  for (let obj of arr) {
+    for (let data of obj.products) {
+      data.id = id;
+      id += 1;
+      res.push(data);
+    }
+  }
+  return res;
+}
+
 const Home = () => {
   const products = useSelector((state) => state.productReducer.products);
   const hoveredId = useSelector((state) => state.productReducer.hoveredId);
+  const value = useSelector((state) => state.headerReducer.value);
+  const price = useSelector((state) => state.priceReducer.active);
+  const category = useSelector((state) => state.categoryReducer.category);
   const dispatch = useDispatch();
-  const url = "https://dummyjson.com/products";
+  const url = "https://myshopproject.free.mockoapp.net/products";
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
-      .then((data) => dispatch(setProducts(data.products)))
+      .then((data) => dispatch(setProducts(parseData(data.carts))))
       .catch(() => new Error("error"));
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="flex-box">
@@ -28,41 +44,60 @@ const Home = () => {
         <PriceRange />
         <Sort />
         <div className="products-box">
-          {products.map((obj) => (
-            <div className="product" key={obj.id}>
-              <div
-                className="head-product-info"
-                onMouseEnter={() => dispatch(setHoveredId(obj.id))}
-                onMouseLeave={() => dispatch(setHoveredId(null))}
-              >
-                <span className="discountPercentage">
-                  -{obj.discountPercentage}%
-                </span>
-                <button className="wishlistBtn">
-                  <img src={like} alt="like" />
-                </button>
-                <img src={obj.thumbnail} alt="img" className="product-img" />{" "}
-                {hoveredId === obj.id && (
-                  <button className="addToCartBtn">Add To Cart</button>
-                )}
-              </div>
-              <div className="product-title">{obj.title}</div>
-              <div className="product-price">
-                {"$" +
-                  (
-                    obj.price -
-                    (obj.price / 100) * obj.discountPercentage
-                  ).toFixed(2)}{" "}
-                <span>{"$" + obj.price}</span>
-                <div className="product-rating">
-                  {Array.from({ length: obj.rating }).map((_, i) => (
-                    <img src={star} key={i} alt="star" />
-                  ))}{" "}
-                  <span>({obj.stock})</span>
+          {products
+            .filter((obj) => {
+              const matchesSearch =
+                value.trim() === ""
+                  ? true
+                  : obj.title.toLowerCase().includes(value.toLowerCase());
+              const matchesPrice = obj.price <= price;
+              const matchesCategory =
+                category === ""
+                  ? true
+                  : obj.category?.toLowerCase().trim() ===
+                    category?.toLowerCase().trim();
+              return matchesSearch && matchesPrice && matchesCategory;
+            })
+            .map((obj) => (
+              <div className="product" key={obj.id}>
+                <div
+                  className="head-product-info"
+                  onMouseEnter={() => dispatch(setHoveredId(obj.id))}
+                  onMouseLeave={() => dispatch(setHoveredId(null))}
+                >
+                  <span className="discountPercentage">
+                    -{obj.discountPercentage}%
+                  </span>
+                  <button className="wishlistBtn">
+                    <img src={like} alt="like" />
+                  </button>
+                  <img
+                    src={obj.thumbnail}
+                    alt="img"
+                    className="product-img"
+                    loading="lazy"
+                  />{" "}
+                  {hoveredId === obj.id && (
+                    <button className="addToCartBtn">Add To Cart</button>
+                  )}
+                </div>
+                <div className="product-title">{obj.title}</div>
+                <div className="product-price">
+                  {"$" +
+                    (
+                      obj.price -
+                      (obj.price / 100) * obj.discountPercentage
+                    ).toFixed(2)}{" "}
+                  <span>{"$" + obj.price}</span>
+                  <div className="product-rating">
+                    {Array.from({ length: obj.quantity }).map((_, i) => (
+                      <img src={star} key={i} alt="star" />
+                    ))}{" "}
+                    <span>({Math.round(obj.total)})</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>

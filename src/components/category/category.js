@@ -7,21 +7,20 @@ const Category = () => {
   const category = useSelector((state) => state.categoryReducer.category);
 
   const categories = [
-    "Woman’s Fashion",
-    "Men’s Fashion",
-    "Electronics",
-    "Home & Lifestyle",
-    "Medicine",
-    "Sports & Outdoor",
-    "Baby’s & Toys",
-    "Groceries & Pets",
-    "Health & Beauty",
-    "Study",
+    "Smartphones ",
+    "Electronics ",
+    "Fashion ",
+    "Home ",
+    "Kitchen ",
+    "Groceries ",
+    "Sports ",
+    "Accessories ",
+    "Beauty  ",
   ];
 
   const onCategoryClick = (el) => {
     if (el === category) {
-      dispatch(setCategory());
+      dispatch(setCategory(""));
     } else {
       dispatch(setCategory(el));
     }
@@ -29,7 +28,7 @@ const Category = () => {
 
   return (
     <div className={style.category}>
-    <h2 className={style.categories}>Categories</h2>
+    <h2 className={style.categories} onClick={() => dispatch(setCategory(""))}>Categories</h2>
       <ul className={style.category_list}>
         {categories.map((el) => (
           <li
