@@ -1,7 +1,7 @@
 import Header from "./components/header/header";
 import Home from "./pages/Home";
 import Footer from "./components/footer/footer";
-import Contacts from "./pages/Contacts";
+import Skeleton from "./components/skeleton/skeleton";
 function App() {
   return (
     <>
