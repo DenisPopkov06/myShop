@@ -1,7 +1,8 @@
 import { useRef, useEffect } from "react";
 import { setPrice } from "../../redux/slices/priceSlice";
-import style from "./priceRange.module.css";
 import { useDispatch } from "react-redux";
+import style from "./priceRange.module.css";
+
 
 const PriceRange = () => {
   const priceRef = useRef(null);

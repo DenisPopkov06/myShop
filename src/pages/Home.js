@@ -26,14 +26,13 @@ function parseData(arr) {
 const Home = () => {
   const products = useSelector((state) => state.productReducer.products);
   const value = useSelector((state) => state.headerReducer.value);
-  const price = useSelector((state) => state.priceReducer.active);
+  const price = useSelector((state) => state.priceReducer.price);
   const category = useSelector((state) => state.categoryReducer.category);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const url = "https://myshopproject.free.mockoapp.net/products";
 
   useEffect(() => {
-    setLoading(true);
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -41,8 +40,9 @@ const Home = () => {
         setLoading(false)
       })
       .catch(() => new Error("error"));
-  }, [dispatch]);
-  
+  }, []);
+   
+console.log(price);
 
   return (
     <div className="flex-box">
