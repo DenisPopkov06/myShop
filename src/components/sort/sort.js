@@ -23,7 +23,7 @@ const Sort = () => {
     };
   }, [dispatch]);
 
-  const statuses = ["price", "raiting", "popularity"];
+  const statuses = ["price", "rating", "popularity"];
 
   const onSortClick = (item, e) => {
     e.stopPropagation();

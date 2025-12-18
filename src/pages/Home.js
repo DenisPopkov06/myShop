@@ -24,10 +24,11 @@ function parseData(arr) {
 }
 
 const Home = () => {
-  const products = useSelector((state) => state.productReducer.products);
+  let products = useSelector((state) => state.productReducer.products);
   const value = useSelector((state) => state.headerReducer.value);
   const price = useSelector((state) => state.priceReducer.price);
   const category = useSelector((state) => state.categoryReducer.category);
+  const sort = useSelector((state) => state.sortReducer.status);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const url = "https://myshopproject.free.mockoapp.net/products";
@@ -37,12 +38,30 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => {
         dispatch(setProducts(parseData(data.carts)));
-        setLoading(false)
+        setLoading(false);
       })
       .catch(() => new Error("error"));
   }, []);
-   
-console.log(price);
+
+  const skelet = Array.from({ length: 12 }).map((_, i) => (
+    <div className={style.skeleton_wrapper} key={i}>
+      <Skeleton />{" "}
+    </div>
+  ));
+
+  products = products.filter((obj) => {
+    const matchesSearch =
+      value.trim() === ""
+        ? true
+        : obj.title.toLowerCase().includes(value.toLowerCase());
+    const matchesPrice = obj.price <= price;
+    const matchesCategory =
+      category === ""
+        ? true
+        : obj.category?.toLowerCase().trim() === category?.toLowerCase().trim();
+
+    return matchesSearch && matchesPrice && matchesCategory;
+  });
 
   return (
     <div className="flex-box">
@@ -50,30 +69,20 @@ console.log(price);
       <div className="flex-box_inside">
         <PriceRange />
         <Sort />
+
         <div className="products-box">
-          {loading
-            ? Array.from({ length: 12 }).map((_, i) => (
-                <div className={style.skeleton_wrapper} key={i}>
-                  <Skeleton />{" "}
-                </div>
-              ))
-            : products
-                .filter((obj) => {
-                  const matchesSearch =
-                    value.trim() === ""
-                      ? true
-                      : obj.title.toLowerCase().includes(value.toLowerCase());
-                  const matchesPrice = obj.price <= price;
-                  const matchesCategory =
-                    category === ""
-                      ? true
-                      : obj.category?.toLowerCase().trim() ===
-                        category?.toLowerCase().trim();
-                  return matchesSearch && matchesPrice && matchesCategory;
-                })
-                .map((obj) => (
-                  <Product {...obj} key={obj.id}/>
-                ))}
+          {loading ? (
+            skelet
+          ) : products.length ? (
+            products
+              .sort((a, b) => a[sort] - b[sort])
+              .map((obj) => <Product {...obj} key={obj.id} />)
+          ) : (
+            <div className="empty-products">
+              Извините, но таких товаров нет :(
+            </div>
+          )}{console.log(products)
+          }
         </div>
       </div>
     </div>

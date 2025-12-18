@@ -9,7 +9,7 @@ export const priceSlice = createSlice({
   initialState,
   reducers: {
     setPrice: (state, action) => {
-      state.active = action.payload
+      state.price = action.payload
     },
     
   },

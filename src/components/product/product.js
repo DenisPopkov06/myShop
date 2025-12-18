@@ -4,7 +4,7 @@ import like from "../../img/like.png";
 import star from "../../img/product-raiting.png";
 import style from "./product.module.css"
 
-const Product = ({id, discountPercentage, thumbnail, title, price, total, quantity}) => {
+const Product = ({id, discountPercentage, thumbnail, title, price, total, rating}) => {
   const dispatch = useDispatch();
   const hoveredId = useSelector((state) => state.productReducer.hoveredId);
 
@@ -32,12 +32,10 @@ const Product = ({id, discountPercentage, thumbnail, title, price, total, quanti
       <div className={style.product_title}>{title}</div>
       <div className={style.product_price}>
         {"$" +
-          (price - (price / 100) * discountPercentage).toFixed(
-            2
-          )}{" "}
-        <span>{"$" + price}</span>
+          price}{" "}
+        <span>{"$" + (price*discountPercentage/100+price).toFixed(2)}</span>
         <div className={style.product_rating}>
-          {Array.from({ length: quantity }).map((_, i) => (
+          {Array.from({ length: rating }).map((_, i) => (
             <img src={star} key={i} alt="star" />
           ))}{" "}
           <span>({Math.round(total)})</span>
