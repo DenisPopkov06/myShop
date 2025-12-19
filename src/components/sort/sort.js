@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useRef } from "react";
 import { setOpen, setStatus, setClose } from "../../redux/slices/sortSlice";
@@ -66,4 +67,4 @@ const Sort = () => {
   );
 };
 
-export default Sort;
+export default React.memo(Sort);

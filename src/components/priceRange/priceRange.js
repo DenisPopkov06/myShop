@@ -3,7 +3,6 @@ import { setPrice } from "../../redux/slices/priceSlice";
 import { useDispatch } from "react-redux";
 import style from "./priceRange.module.css";
 
-
 const PriceRange = () => {
   const priceRef = useRef(null);
   const sliderRef = useRef(null);
@@ -14,19 +13,22 @@ const PriceRange = () => {
     const price = priceRef.current;
 
     price.textContent = slider.value;
-    const moveslider = () => {
-      price.textContent = slider.value;
-      dispatch(setPrice(slider.value));
-      let x = slider.value / 10;
-      slider.style.background = `linear-gradient(90deg, black ${x}%, white ${x}%)`;
-    };
 
-    slider.addEventListener("mousemove", moveslider);
+    slider.addEventListener("input", moveslider);
 
     return () => {
-      slider.removeEventListener("mousemove", moveslider);
+      slider.removeEventListener("input", moveslider);
     };
   });
+
+  const moveslider = () => {
+    const slider = sliderRef.current;
+    const price = priceRef.current;
+    let x = slider.value / 10;
+    price.textContent = slider.value;
+    dispatch(setPrice(slider.value));
+    slider.style.background = `linear-gradient(90deg, black ${x}%, white ${x}%)`;
+  };
 
   return (
     <div className={style.slider_container}>
