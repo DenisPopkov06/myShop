@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "../../redux/slices/categorySlice";
 import style from "./category.module.css";
 
-const Category = ({}) => {
+const Category = () => {
   const dispatch = useDispatch();
   const category = useSelector((state) => state.categoryReducer.category);
 

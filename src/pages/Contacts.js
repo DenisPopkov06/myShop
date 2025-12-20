@@ -5,6 +5,8 @@ import {
   setPhone,
   setMessage,
 } from "../redux/slices/contactSlice";
+import { setActive } from "../redux/slices/headerSlice";
+import { NavLink } from "react-router-dom";
 import phones from "../img/contacts-phone.png";
 import mail from "../img/contacts-mail.png";
 import "../css/contacts.css";
@@ -27,13 +29,13 @@ const Contacts = () => {
   return (
     <div className="contacts-container">
       <div className="pages-path">
-        <a className="home-path-link" href="#">
+        <NavLink className="home-path-link" to={"/"} onClick={() => dispatch(setActive("Home"))}>
           Home /{" "}
-        </a>
-        <a className="contacts-path-link" href="#">
+        </NavLink>
+        <NavLink className="contacts-path-link" to={"/contacts"}>
           {" "}
           Contact
-        </a>
+        </NavLink>
       </div>
 
       <div className="contacts_main-info">

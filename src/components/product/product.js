@@ -4,6 +4,7 @@ import Skeleton from "../skeleton/skeleton"
 import like from "../../img/like.png";
 import star from "../../img/product-raiting.png";
 import style from "./product.module.css";
+import skeloton_style from "../skeleton/skeleton.module.css"
 
 const Product = ({loading}) => {
   const dispatch = useDispatch();
@@ -15,8 +16,8 @@ const Product = ({loading}) => {
   const sort = useSelector((state) => state.sortReducer.status);
 
   const skelet = Array.from({ length: 12 }).map((_, i) => (
-    <div className={style.skeleton_wrapper} key={i}>
-      <Skeleton />{" "}
+    <div className={skeloton_style.skeleton_wrapper} key={i}>
+      <Skeleton />
     </div>
   ));
 

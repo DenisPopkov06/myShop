@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setActive, setValue } from "../../redux/slices/headerSlice";
-
+import { NavLink } from "react-router-dom";
 import cart from "./icons/cart.png";
 import like from "../../img/like.png";
 import searching from "./icons/searching.png";
@@ -10,25 +10,38 @@ const Header = () => {
   const active = useSelector((state) => state.headerReducer.active);
   const value = useSelector((state) => state.headerReducer.value);
   const dispatch = useDispatch();
-  const pages = ["Home", "Contact", "About", "Sign Up"];
+  const pages = [
+    { name: "Home",
+      link: "/"
+     },
+    { name: "Contact",
+      link: "contacts"
+     },
+    { name: "About",
+      link: "about"
+     },
+    { name: "Sign Up",
+      link: "sing up"
+     },
+  ];
 
   return (
     <div className={styles.header}>
       <div className={styles.logo}>
-        <a href="#">Exclusive</a>
+        <NavLink to={"/"}>Exclusive</NavLink>
       </div>
       <div className={styles.navigation}>
         <nav>
           <ul className={styles.navigation_list}>
-            {pages.map((el) => (
+            {pages.map((obj) => (
               <li
                 className={styles.navigation_list_item}
-                key={el}
-                onClick={() => dispatch(setActive(el))}
+                key={obj.name}
+                onClick={() => dispatch(setActive(obj.name))}
               >
-                <a href="#" className={el === active ? styles.active : ""}>
-                  {el}
-                </a>
+                <NavLink to={obj.link} className={obj.name === active ? styles.active : ""}>
+                  {obj.name}
+                </NavLink>
               </li>
             ))}
           </ul>

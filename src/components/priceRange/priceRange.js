@@ -28,7 +28,7 @@ const PriceRange = () => {
     price.textContent = slider.value;
     dispatch(setPrice(slider.value));
     slider.style.background = `linear-gradient(90deg, black ${x}%, white ${x}%)`;
-  };
+  }
 
   return (
     <div className={style.slider_container}>

@@ -3,11 +3,10 @@ import { useDispatch } from "react-redux";
 import Category from "../components/category/category";
 import PriceRange from "../components/priceRange/priceRange";
 import Sort from "../components/sort/sort";
-import { setProducts } from "../redux/slices/productSlice";
-
-import "../css/home.css";
-import style from "../components/skeleton/skeleton.module.css";
 import Product from "../components/product/product";
+import { setProducts } from "../redux/slices/productSlice";
+import "../css/home.css";
+
 
 function parseData(arr) {
   let res = [];
@@ -37,17 +36,14 @@ const Home = () => {
       .catch(() => new Error("error"));
   }, []);
 
-
-
   return (
     <div className="flex-box">
       <Category />
       <div className="flex-box_inside">
         <PriceRange />
         <Sort />
-
         <div className="products-box">
-          <Product loading={loading}/>
+          <Product loading={loading} />
         </div>
       </div>
     </div>
