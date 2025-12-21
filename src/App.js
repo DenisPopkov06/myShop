@@ -1,6 +1,7 @@
 import Header from "./components/header/header";
 import Home from "./pages/Home";
-import Contacts from "./pages/Contacts"
+import Contacts from "./pages/Contacts";
+import NotFound from "./pages/NotFound";
 import Footer from "./components/footer/footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
@@ -9,8 +10,9 @@ function App() {
       <Header />
       <div className="container">
         <Routes>
-         <Route path="/" element={<Home />} />
-         <Route path="/contacts" element={<Contacts />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/contacts" element={<Contacts />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

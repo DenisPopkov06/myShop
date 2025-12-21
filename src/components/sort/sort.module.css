@@ -7,21 +7,21 @@
   z-index: 1;
 }
 
-.sortHeader{
+.sortHeader {
   position: relative;
   margin-bottom: 5px;
 }
 
-svg{
+svg {
   position: absolute;
   left: -18px;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.active_svg{
-   transform: rotate(180deg);
-   top: 40%;
+.active_svg {
+  transform: rotate(180deg);
+  top: 40%;
 }
 
 .sort span {
@@ -44,8 +44,8 @@ svg{
   margin-bottom: 8px;
 }
 
-.default button:hover{
-    background-color: gainsboro;
+.default button:hover {
+  background-color: gainsboro;
 }
 
 .active button {

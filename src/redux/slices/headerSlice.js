@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   active: "Home",
-  value: ""
+  value: "",
 }
 
 export const activeSlice = createSlice({
@@ -14,7 +14,7 @@ export const activeSlice = createSlice({
     },
     setValue: (state, action) => {
       state.value = action.payload
-    }
+    },
   },
 })
 export const { setActive,  setValue} = activeSlice.actions

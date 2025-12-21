@@ -10,6 +10,7 @@ const Header = () => {
   const active = useSelector((state) => state.headerReducer.active);
   const value = useSelector((state) => state.headerReducer.value);
   const dispatch = useDispatch();
+
   const pages = [
     { name: "Home",
       link: "/"
