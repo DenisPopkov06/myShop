@@ -1,0 +1,52 @@
+.contacts_main_info_right_cart {
+  box-shadow: 0px 1px 13px 0px rgb(0, 0, 0, 5%);
+  width: 800px;
+  border-radius: 4px;
+  padding: 40px 31px 40px;
+  height: 500px;
+}
+
+.contacts_main_info_right_cart form {
+  display: flex;
+  justify-content: space-between;
+  row-gap: 32px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.contacts_main_info_right_cart input,
+textarea {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 13px 16px;
+  outline: none;
+}
+
+.contacts_main_info_right_cart input {
+  width: 235px;
+  height: 50px;
+  appearance: textfield;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.contacts_main_info_right_cart textarea {
+  width: 100%;
+  height: 250px;
+  resize: none;
+}
+
+.contacts_main_info_right_cart button {
+  float: right;
+  padding: 16px 48px;
+  background-color: #db4444;
+  border: none;
+  border-radius: 4px;
+  color: #fafafa;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}

@@ -42,7 +42,7 @@ const Product = ({ loading }) => {
           .sort((a, b) => a[sort] - b[sort])
           .map((obj) => <ProductItem obj={obj} key={obj.id} />)
       ) : (
-        <div className={style.empty-products}>Извините, но таких товаров нет :(</div>
+        <div className={style.empty_products}>Извините, но таких товаров нет :(</div>
       )}
     </>
   );

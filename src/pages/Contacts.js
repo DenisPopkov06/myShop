@@ -1,35 +1,25 @@
-import { useDispatch, useSelector } from "react-redux";
-import {
-  setName,
-  setEmail,
-  setPhone,
-  setMessage,
-} from "../redux/slices/contactSlice";
+import { useDispatch } from "react-redux";
 import { setActive } from "../redux/slices/headerSlice";
 import { NavLink } from "react-router-dom";
+import ContactsForm from "../components/contactsForm/contactsForm";
 import phones from "../img/contacts-phone.png";
 import mail from "../img/contacts-mail.png";
 import "../css/contacts.css";
 
-const Contacts = () => {
-  const name = useSelector((state) => state.contactReducer.name);
-  const email = useSelector((state) => state.contactReducer.email);
-  const phone = useSelector((state) => state.contactReducer.phone);
-  const message = useSelector((state) => state.contactReducer.message);
-  const dispatch = useDispatch();
 
-  const onSubmitBtn = (event) => {
-    event.preventDefault();
-    dispatch(setName(""));
-    dispatch(setEmail(""));
-    dispatch(setPhone(""));
-    dispatch(setMessage(""));
-  };
+const Contacts = () => {
+
+  const dispatch = useDispatch();
+  dispatch(setActive("Contact"))
 
   return (
     <div className="contacts-container">
       <div className="pages-path">
-        <NavLink className="home-path-link" to={"/"} onClick={() => dispatch(setActive("Home"))}>
+        <NavLink
+          className="home-path-link"
+          to={"/"}
+          onClick={() => dispatch(setActive("Home"))}
+        >
           Home /{" "}
         </NavLink>
         <NavLink className="contacts-path-link" to={"/contacts"}>
@@ -62,39 +52,7 @@ const Contacts = () => {
             <div className="info-contact">Emails: support@exclusive.com</div>
           </div>
         </div>
-        <div className="contacts_main-info_right-cart">
-          <form onSubmit={(e) => onSubmitBtn(e)} id="myForm">
-            <input
-              placeholder="Your Name"
-              required
-              value={name}
-              onChange={(e) => dispatch(setName(e.target.value))}
-            />
-            <input
-              placeholder="Your Email"
-              required
-              value={email}
-              onChange={(e) => dispatch(setEmail(e.target.value))}
-            />
-            <input
-              type="number"
-              placeholder="Your Phone"
-              required
-              value={phone}
-              onChange={(e) => dispatch(setPhone(e.target.value))}
-              pattern="[0-9]*"
-            />
-            <textarea
-              placeholder="Your Message"
-              required
-              value={message}
-              onChange={(e) => dispatch(setMessage(e.target.value))}
-            />
-          </form>
-          <button form="myForm" type="submit">
-            Send Message
-          </button>
-        </div>
+        <ContactsForm />
       </div>
     </div>
   );

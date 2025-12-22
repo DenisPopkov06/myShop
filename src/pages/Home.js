@@ -1,25 +1,14 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { setProducts } from "../redux/slices/productSlice";
+import { setActive } from "../redux/slices/headerSlice";
 import Category from "../components/category/category";
 import PriceRange from "../components/priceRange/priceRange";
 import Sort from "../components/sort/sort";
 import Product from "../components/product/product";
-import { setProducts } from "../redux/slices/productSlice";
+import parseData from "../assets/parseData";
 import "../css/home.css";
 
-
-function parseData(arr) {
-  let res = [];
-  let id = 0;
-  for (let obj of arr) {
-    for (let data of obj.products) {
-      data.id = id;
-      id += 1;
-      res.push(data);
-    }
-  }
-  return res;
-}
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -27,6 +16,7 @@ const Home = () => {
   const url = "https://myshopproject.free.mockoapp.net/products";
 
   useEffect(() => {
+    dispatch(setActive("Home"));
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
