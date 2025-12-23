@@ -7,6 +7,10 @@
   padding: 0 9% 20px;
 }
 
+.headerSmallContainer{
+  padding: 0 15% 20px;
+}
+
 .navigation nav ul {
   display: flex;
   align-items: center;

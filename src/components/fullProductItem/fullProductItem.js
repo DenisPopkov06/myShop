@@ -1,10 +1,12 @@
 import star from "../../img/product-raiting.png";
 import like from "../../img/like.png";
+import delivery from "./icons/delivery.png";
+import goBack from "./icons/goBack.png";
 import style from "./fullProductItem.module.css";
 
-const FullProductItem = (filteredProduct) => {
 
-  const sizes = ["XS", "S", "M", "L", "XL"]
+const FullProductItem = (filteredProduct) => {
+  const sizes = ["XS", "S", "M", "L", "XL"];
 
   return (
     <div className={style.flexContainer}>
@@ -13,7 +15,7 @@ const FullProductItem = (filteredProduct) => {
         alt="product"
         className={style.productImg}
       ></img>
-      <div>
+      <div className={style.productInfo}>
         <div className={style.productFirstBlock}>
           <div>
             <h1 className={style.productTitle}>{filteredProduct.title}</h1>
@@ -21,34 +23,48 @@ const FullProductItem = (filteredProduct) => {
               <img src={star} alt="star" key={i} className={style.starImg} />
             ))}
             <span className={style.productReviews}>
-              ({Math.ceil(filteredProduct.discountedTotal)} Reviews)  |
+              ({Math.ceil(filteredProduct.discountedTotal)} Reviews) |
             </span>
             <span className={style.productStock}> In Stock</span>
           </div>
           <h3 className={style.productPrice}>{filteredProduct.price}$</h3>
-          <p className={style.productDescription}>{filteredProduct.description}</p>
+          <p className={style.productDescription}>
+            {filteredProduct.description}
+          </p>
         </div>
-        <div>
-          <h3>Size:</h3>
-          {sizes.map(size => <button key={size}>{size}</button>)}
-          <div>
-            <button>-</button>
-            <div></div>
-            <button>+</button>
+        <div className={style.productSecondBlock}>
+          <h3 className={style.productSize}>Size:</h3>
+          {sizes.map((size) => (
+            <button key={size} className={style.productSizeButton}>
+              {size}
+            </button>
+          ))}
+          <div className={style.productButtonSection}>
+            <div className={style.productCounterBlock}>
+              <button className={style.productMinus}>-</button>
+              <div className={style.productCounterDescription}>2</div>
+              <button className={style.productPlus}>+</button>
+            </div>
+            <button className={style.productBuyNowBtn}>Buy Now</button>
+            <button className={style.productLikeBtn}>
+              <img src={like} alt="like" />
+            </button>
           </div>
-          <button>Buy Now</button>
-          <button>
-            <img src={like} alt="like" />
-          </button>
         </div>
-        <div>
-          <div>
-            <h3>Free Delivery</h3>
-            <p>for orders over 30$</p>
+        <div className={style.productThirdBlock}>
+          <div className={`${style.productDeliveryBlock} ${style.productDeliveryBlockFirst}`}>
+            <img src={delivery} alt="delivery" />
+            <div>
+              <h3>Free Delivery</h3>
+              <p>for orders over 30$</p>
+            </div>
           </div>
-          <div>
-            <h3>Return Delivery</h3>
-            <p>Free 30 Days Delivery Returns. Details</p>
+          <div className={`${style.productDeliveryBlock} ${style.productDeliveryBlockSecond}`}>
+            <img src={goBack} alt="goBack" />
+            <div>
+              <h3>Return Delivery</h3>
+              <p>Free 30 Days Delivery Returns</p>
+            </div>
           </div>
         </div>
       </div>

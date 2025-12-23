@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setActive } from "../redux/slices/headerSlice";
 import { useEffect } from "react";
-import FullProductItem from "../components/fullProductItem/fullProductItem";
+import FullProductItem from "../components/fullProductItem/FullProductItem";
 
 const FullProduct = () => {
   const products = useSelector((state) => state.productReducer.products);
@@ -12,7 +12,7 @@ const FullProduct = () => {
 
   useEffect(() => {
     dispatch(setActive(-1));
-  }, []);
+  }, [dispatch]);
 
   return <FullProductItem {...filteredProduct}/>;
 };
