@@ -24,7 +24,8 @@ const Home = () => {
         setLoading(false);
       })
       .catch(() => new Error("error"));
-  }, [dispatch]);
+  });
+
 
   return (
     <div className="flex-box">

@@ -4,8 +4,6 @@ import Skeleton from "../skeleton/skeleton";
 import skeloton_style from "../skeleton/skeleton.module.css";
 import style from "./product.module.css"
 
-
-
 const Product = ({ loading }) => {
   const value = useSelector((state) => state.headerReducer.value);
   const price = useSelector((state) => state.priceReducer.price);

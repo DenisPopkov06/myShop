@@ -5,6 +5,7 @@ import categoryReducer from "./slices/categorySlice";
 import contactReducer from "./slices/contactSlice";
 import productReducer from "./slices/productSlice";
 import priceReducer from "./slices/priceSlice";
+import fullProductItemSlice from "./slices/fullProductItemSlice";
 export const store = configureStore({
   reducer: {
     headerReducer,
@@ -13,5 +14,6 @@ export const store = configureStore({
     contactReducer,
     productReducer,
     priceReducer,
+    fullProductItemSlice,
   },
 });
