@@ -1,0 +1,21 @@
+.flex-cart-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  flex-wrap: wrap;
+}
+
+.flex-cart-box__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px 40px;
+  box-shadow: 0 1px 13px 0 rgb(0, 0, 0, 5%);
+  font-size: 16px;
+}
+
+.flex-cart-box__header_item{
+    text-shadow: 0 4px 4px rgb(0, 0, 0, 25%);
+}

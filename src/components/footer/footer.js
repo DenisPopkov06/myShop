@@ -23,7 +23,12 @@ const Footer = () => {
         <h2>Exclusive</h2>
         <h3>Subscribe</h3>
         <p>Get 10% off your first order</p>
-        <form onSubmit={(e) => e.preventDefault()}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            alert("Ваша скидка применена");
+          }}
+        >
           <input placeholder="Enter your email" />
           <button>
             {" "}

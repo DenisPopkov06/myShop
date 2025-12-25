@@ -24,3 +24,16 @@ ul{
   margin: auto;
 }
 
+.home-path-link {
+  opacity: 0.5;
+}
+
+.home-path-link:hover {
+  opacity: 0.8;
+}
+
+.pages-path {
+  margin-top: 110px;
+  margin-bottom: 80px;
+}
+

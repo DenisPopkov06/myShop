@@ -20,7 +20,13 @@ const Header = () => {
   ];
 
   return (
-    <div className={location.pathname.includes("/products/") ? `${styles.headerSmallContainer} ${styles.header}` : `${styles.header}`}>
+    <div
+      className={
+        location.pathname.includes("/products/")
+          ? `${styles.headerSmallContainer} ${styles.header}`
+          : `${styles.header}`
+      }
+    >
       <div className={styles.logo}>
         <NavLink to={"/"}>Exclusive</NavLink>
       </div>
@@ -62,7 +68,9 @@ const Header = () => {
           <img src={like} alt="like" />
         </button>
         <button className={styles.cart_btn}>
-          <img src={cart} alt="cart" />
+          <NavLink to={"/cart"}>
+            <img src={cart} alt="cart" />
+          </NavLink>
         </button>
       </div>
     </div>

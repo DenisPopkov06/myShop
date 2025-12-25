@@ -9,8 +9,8 @@ import { useEffect } from "react";
 
 const FullProductItem = (filteredProduct) => {
   const sizes = ["XS", "S", "M", "L", "XL"];
-  const activeSize = useSelector((state) => state.fullProductItemSlice.size);
-  const counter = useSelector((state) => state.fullProductItemSlice.count);
+  const activeSize = useSelector((state) => state.fullProductItemReducer.size);
+  const counter = useSelector((state) => state.fullProductItemReducer.count);
   const dispatch = useDispatch();
   
   useEffect(() => {dispatch(setSize("M"))}, [dispatch])

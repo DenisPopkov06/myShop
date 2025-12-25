@@ -1,17 +1,5 @@
 .contacts-container {
-  margin: 110px 0 155px;
-}
-
-.home-path-link {
-  opacity: 0.5;
-}
-
-.home-path-link:hover {
-  opacity: 0.8;
-}
-
-.pages-path {
-  margin-bottom: 80px;
+  margin-bottom: 155px;
 }
 
 .contacts_main-info {

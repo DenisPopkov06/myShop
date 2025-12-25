@@ -21,6 +21,7 @@ const ContactsForm = () => {
     dispatch(setEmail(""));
     dispatch(setPhone(""));
     dispatch(setMessage(""));
+    alert("Ваше письмо доставлено")
   };
 
   return (

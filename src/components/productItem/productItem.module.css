@@ -68,6 +68,12 @@
   cursor: pointer;
 }
 
+.addToCartBtn img{
+  position: relative;
+  left: -5px;
+  bottom: -6px;
+}
+
 
 .product_title, .product_price{
   font-size: 16px;

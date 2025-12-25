@@ -22,7 +22,7 @@ const Contacts = () => {
         >
           Home /{" "}
         </NavLink>
-        <NavLink className="contacts-path-link" to={"/contacts"}>
+        <NavLink to={"/contacts"}>
           {" "}
           Contact
         </NavLink>
