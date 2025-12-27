@@ -5,7 +5,6 @@ import like from "../../img/like.png";
 import delivery from "./icons/delivery.png";
 import goBack from "./icons/goBack.png";
 import style from "./fullProductItem.module.css";
-import { useEffect } from "react";
 
 const FullProductItem = (filteredProduct) => {
   const sizes = ["XS", "S", "M", "L", "XL"];
@@ -13,9 +12,6 @@ const FullProductItem = (filteredProduct) => {
   const counter = useSelector((state) => state.fullProductItemReducer.count);
   const dispatch = useDispatch();
   
-  useEffect(() => {dispatch(setSize("M"))}, [dispatch])
-  
-
   return (
     <div className={style.flexContainer}>
       <img

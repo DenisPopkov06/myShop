@@ -9,6 +9,7 @@ import styles from "./header.module.css";
 const Header = () => {
   const active = useSelector((state) => state.headerReducer.active);
   const value = useSelector((state) => state.headerReducer.value);
+  const counterCart = useSelector((state) => state.cartReducer.counter);
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -69,6 +70,7 @@ const Header = () => {
         </button>
         <button className={styles.cart_btn}>
           <NavLink to={"/cart"}>
+            {counterCart !== 0 && <span>{counterCart}</span>}
             <img src={cart} alt="cart" />
           </NavLink>
         </button>

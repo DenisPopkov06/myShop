@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { setCart } from "../../redux/slices/cartSlice";
+import { setCart, setCount } from "../../redux/slices/cartSlice";
 import { useDispatch } from "react-redux";
 import like from "../../img/like.png";
 import cartProduct from "../../img/CartProduct.png";
@@ -28,7 +28,10 @@ const ProductItem = ({ obj }) => {
         </NavLink>
         <button
           className={style.addToCartBtn}
-          onClick={() => dispatch(setCart(obj))}
+          onClick={() => {
+            dispatch(setCart(obj));
+            dispatch(setCount());
+          }}
         >
           <img src={cartProduct} alt="cart" />
           Add To Cart
