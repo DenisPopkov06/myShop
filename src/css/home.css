@@ -1,0 +1,26 @@
+.flex-box {
+  display: flex;
+  column-gap: 60px;
+}
+
+.flex-box_inside {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.products-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 80px;
+  column-gap: 30px;
+  row-gap: 65px;
+  margin-bottom: 80px;
+  overflow-y: scroll;
+  height: 85vh;
+  position: relative;
+}
+
+

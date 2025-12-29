@@ -1,0 +1,32 @@
+.skeleton_item{
+  height: 300px;
+  background-color: #b6aabe33;
+  border-radius: 5px;
+  width: 280px;
+  margin-bottom: 15px;
+}
+
+.skeleton_title{
+  width: 180px;
+  height: 25px;
+  background-color: #b6aabe33;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.skeleton_price{
+  width: 130px;
+  height: 25px;
+  background-color: #b6aabe33;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.skeleton_raiting{
+  width: 160px;
+  height: 25px;
+  background-color: #b6aabe33;
+  border-radius: 5px;
+}
+
+

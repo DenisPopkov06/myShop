@@ -1,0 +1,108 @@
+.product_Link{
+  text-decoration: none;
+}
+
+.product {
+  height: 350px;
+}
+
+.product:hover .addToCartBtn{
+  display: block;
+}
+
+.head_product_info{
+  position: relative;
+}
+
+.discountPercentage{
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  border-radius: 4px;
+  background-color: #DB4444;
+  color: #FAFAFA;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.wishlistBtn{
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  border: none;
+  background-color: #fff;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  cursor: pointer;
+}
+
+.wishlistBtn img{
+  position: relative;
+   top: 3px
+}
+
+.product_img{
+  width: 100%;
+  background-color: #F5F5F5;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.addToCartBtn{
+  display: none;
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 12px;
+  left: 0;
+  cursor: pointer;
+}
+
+.addToCartBtn img{
+  position: relative;
+  left: -5px;
+  bottom: -6px;
+}
+
+
+.product_title, .product_price{
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.product_price{
+  color: #DB4444;
+  margin-bottom: 8px;
+}
+
+.product_price span{
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: #000;
+  margin-left: 8px;
+}
+
+.product_rating{
+  display: flex;
+  align-items: center;
+}
+
+.product_rating img{
+ margin-right: 3px;
+}
+
+.product_rating span{
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+}
