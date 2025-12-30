@@ -10,14 +10,15 @@ import { NavLink } from "react-router-dom";
 import close from "../../img/icon_close.svg.png";
 import style from "./cartItem.module.css";
 
-const CartItem = ({ obj }) => {
+const CartItem = ({ obj }) => { 
   const dispatch = useDispatch();
+
   return (
     <div className={style.flex_cart_box__main_item} key={obj.id}>
       <button
         className={style.delete_product_btn}
         onClick={() => {
-          dispatch(deleteCartItem(obj.id));
+          dispatch(deleteCartItem([obj.id, obj.size, obj.count]));
           dispatch(setCount());
         }}
       >
@@ -44,6 +45,7 @@ const CartItem = ({ obj }) => {
         {obj.count}
         <button onClick={() => dispatch(counterIncrease(obj.id))}>+</button>
       </div>
+      <div>{obj.size || "M"}</div>
       <div>{(obj.count * obj.price).toFixed(2)}$</div>
     </div>
   );

@@ -1,46 +1,34 @@
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { setCart, setCount } from "../../redux/slices/cartSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { setFullProductInfo } from "../../redux/slices/fullProductItemSlice";
-import {
-  setWishItems,
-  setCountOfWishItems,
-} from "../../redux/slices/wishListSlice";
-import like from "../../img/like.png";
-import activeLike from "../../img/activeLike.png";
+import { deleteWishItem } from "../../redux/slices/wishListSlice";
 import quickView from "../../img/QuickView.png";
 import cartProduct from "../../img/CartProduct.png";
-import star from "../../img/product-raiting.png";
-import style from "./productItem.module.css";
+import deleteBtn from "../../img/icon-delete.png";
+import style from "./wishItem.module.css";
 
-const ProductItem = ({ obj }) => {
+const WishItem = ({ obj }) => {
   const dispatch = useDispatch();
-  const wishItems = useSelector((state) => state.wishListReducer.wishItems);
-  const index = wishItems.findIndex((item) => item.id === obj.id);
-
   return (
     <div className={style.product} key={obj.id}>
       <div className={style.head_product_info}>
         <span className={style.discountPercentage}>
           -{Math.ceil(obj.discountPercentage)}%
         </span>
-        <button
-          className={style.wishlistBtn}
-          onClick={() => {
-            dispatch(setWishItems(obj));
-            dispatch(setCountOfWishItems())
-          }}
-        >
-          <img
-            src={wishItems[index]?.like === true ? activeLike : like}
-            alt="like"
-          />
-        </button>
         <NavLink to={`/products/${obj.id}`} className={style.product_Link}>
           <button className={style.quickView}>
             <img src={quickView} alt="like" />
           </button>
         </NavLink>
+        <button
+          className={style.deletebtn}
+          onClick={() => {
+            dispatch(deleteWishItem(obj));
+          }}
+        >
+          <img src={deleteBtn} alt="like" />
+        </button>
         <img
           src={obj.thumbnail}
           alt="img"
@@ -75,15 +63,9 @@ const ProductItem = ({ obj }) => {
               obj.price
             ).toFixed(2)}
         </span>
-        <div className={style.product_rating}>
-          {Array.from({ length: obj.rating }).map((_, i) => (
-            <img src={star} key={i} alt="star" />
-          ))}{" "}
-          <span>Осталось: {Math.round(obj.total)}</span>
-        </div>
       </div>
     </div>
   );
 };
 
-export default ProductItem;
+export default WishItem;

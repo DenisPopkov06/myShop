@@ -7,6 +7,7 @@ import productReducer from "./slices/productSlice";
 import priceReducer from "./slices/priceSlice";
 import fullProductItemReducer from "./slices/fullProductItemSlice";
 import cartReducer from "./slices/cartSlice"
+import wishListReducer from "./slices/wishListSlice"
 export const store = configureStore({
   reducer: {
     headerReducer,
@@ -16,6 +17,7 @@ export const store = configureStore({
     productReducer,
     priceReducer,
     fullProductItemReducer,
-    cartReducer
+    cartReducer,
+    wishListReducer
   },
 });

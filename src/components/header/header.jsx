@@ -10,6 +10,9 @@ const Header = () => {
   const active = useSelector((state) => state.headerReducer.active);
   const value = useSelector((state) => state.headerReducer.value);
   const counterCart = useSelector((state) => state.cartReducer.counter);
+  const counterWishList = useSelector(
+    (state) => state.wishListReducer.countOfWishItems
+  );
   const dispatch = useDispatch();
   const location = useLocation();
 
@@ -56,7 +59,9 @@ const Header = () => {
           <form
             onSubmit={(e) => e.preventDefault()}
             className={
-              !location.pathname.includes("/home") && `${styles.displayNone}`
+              location.pathname.includes("/home")
+                ? undefined
+                : `${styles.displayNone}`
             }
           >
             <input
@@ -71,7 +76,10 @@ const Header = () => {
           </form>
         )}
         <button className={styles.like_btn}>
-          <img src={like} alt="like" />
+          <NavLink to={"/wishList"}>
+            {counterWishList !== 0 && <span>{counterWishList}</span>}
+            <img src={like} alt="like" />
+          </NavLink>
         </button>
         <button className={styles.cart_btn}>
           <NavLink to={"/cart"}>

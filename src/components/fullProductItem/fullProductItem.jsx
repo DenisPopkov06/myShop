@@ -6,12 +6,13 @@ import {
 } from "../../redux/slices/fullProductItemSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 import star from "../../img/product-raiting.png";
 import like from "../../img/like.png";
 import delivery from "./icons/delivery.png";
 import goBack from "./icons/goBack.png";
 import style from "./fullProductItem.module.css";
-import { useEffect } from "react";
+import { setCart } from "../../redux/slices/cartSlice";
 
 const sizes = ["XS", "S", "M", "L", "XL"];
 
@@ -21,18 +22,19 @@ const FullProductItem = (filteredProduct) => {
     (state) => state.fullProductItemReducer.fullProductsInfo
   );
   const indexOfProduct = fullProductsInfo.findIndex(
-      (obj) => obj.id === filteredProduct.id
-    );
+    (obj) => obj.id === filteredProduct.id
+  );
   const fullProductInfo = fullProductsInfo[indexOfProduct];
-  console.log(fullProductsInfo);
 
-    useEffect(() => {
+  useEffect(() => {
     if (filteredProduct?.id) {
-      dispatch(setFullProductInfo({ 
-        ...filteredProduct, 
-        size: "M", 
-        count: 1 
-      }));
+      dispatch(
+        setFullProductInfo({
+          ...filteredProduct,
+          size: "M",
+          count: 1,
+        })
+      );
     }
   }, [dispatch, filteredProduct]);
 
@@ -65,7 +67,7 @@ const FullProductItem = (filteredProduct) => {
           {sizes.map((size) => (
             <button
               key={size}
-              onClick={() => dispatch(setSize({...fullProductInfo, size}))}
+              onClick={() => dispatch(setSize({ ...fullProductInfo, size }))}
               className={
                 size === fullProductInfo?.size
                   ? `${style.productSizeButton} ${style.activeSize}`
@@ -95,7 +97,14 @@ const FullProductItem = (filteredProduct) => {
               </button>
             </div>
             <NavLink to={"/cart"}>
-              <button className={style.productBuyNowBtn}>Buy Now</button>
+              <button
+                className={style.productBuyNowBtn}
+                onClick={() => {
+                  dispatch(setCart(fullProductInfo));
+                }}
+              >
+                Buy Now
+              </button>
             </NavLink>
             <button className={style.productLikeBtn}>
               <img src={like} alt="like" />

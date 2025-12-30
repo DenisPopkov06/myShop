@@ -1,0 +1,26 @@
+.wishList{
+    min-height: 52vh;
+}
+
+.wishListCounter{
+    font-size: 20px;
+    margin: 95px 0 75px;
+}
+
+.wishItemsBlock{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 80px;
+    white-space: nowrap;
+}
+
+.noWish{
+    display: flex;
+    align-items:start;
+    justify-content: center;
+    font-size: 30px;
+}
+

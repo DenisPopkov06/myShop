@@ -12,6 +12,7 @@ export const fullProductItemSlice = createSlice({
       const indexProduct = state.fullProductsInfo.findIndex(
         (obj) => obj.id === action.payload?.id
       );
+
       state.fullProductsInfo[indexProduct].size = action.payload.size;
     },
     setCountPlus: (state, action) => {

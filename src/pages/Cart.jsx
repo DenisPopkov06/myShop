@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { setActive } from "../redux/slices/headerSlice";
+import { setCount } from "../redux/slices/cartSlice";
 import CartItem from "../components/cartItem/cartItem";
 import emptyCart from "../img/empty-cart.png";
 import "../css/cart.css";
@@ -17,21 +18,21 @@ const Cart = () => {
   useEffect(() => {
     dispatch(setActive(-1));
     totalPrice > 30 ? setShipping("Free") : setShipping("5$");
+    dispatch(setCount());
   }, [dispatch, totalPrice]);
 
   const sectors = useMemo(
-    () => ["Product", "Price", "Quantity", "Subtotal"],
+    () => ["Product", "Price", "Quantity", "Size", "Subtotal"],
     []
   );
 
   const cartItems = useMemo(
-    () => cartProducts.map((obj) => <CartItem obj={obj} key={obj.id} />),
+    () => cartProducts.map((obj, i) => <CartItem obj={obj} key={i} />),
     [cartProducts]
   );
 
   return (
     <div className="cart-container">
-      {" "}
       <div className="pages-path">
         <NavLink
           className="home-path-link"
@@ -57,9 +58,9 @@ const Cart = () => {
                 </div>
               ))}
             </div>
-            <div className="flex-cart-box__main">{cartItems}</div>{" "}
+            <div className="flex-cart-box__main">{cartItems}</div>
             <NavLink to={"/"} onClick={() => dispatch(setActive("Home"))}>
-              <button className="return-to-shop-btn">Return To Shop</button>{" "}
+              <button className="return-to-shop-btn">Return To Shop</button>
             </NavLink>
           </div>
           <div className="flexbox">
@@ -67,9 +68,9 @@ const Cart = () => {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  alert("скидка применена!")
-                  setShipping("Free")
-                  sale = shipping
+                  alert("скидка применена!");
+                  setShipping("Free");
+                  sale = "Free";
                 }}
               >
                 <input
