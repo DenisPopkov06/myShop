@@ -1,0 +1,54 @@
+.sort {
+  margin-top: 40px;
+  display: inline-block;
+  cursor: pointer;
+  height: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.sortHeader {
+  position: relative;
+  margin-bottom: 5px;
+}
+
+svg {
+  position: absolute;
+  left: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.active_svg {
+  transform: rotate(180deg);
+  top: 40%;
+}
+
+.sort span {
+  color: rgb(148, 148, 15);
+}
+
+.statuses_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.sort_list_item_btn {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 15px;
+  margin-bottom: 8px;
+}
+
+.default button:hover {
+  background-color: gainsboro;
+}
+
+.active button {
+  background-color: #000;
+  color: #fff;
+}

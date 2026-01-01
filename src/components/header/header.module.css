@@ -1,0 +1,145 @@
+.header {
+  margin-top: 40px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  padding: 0 9% 20px;
+}
+
+.headerSmallContainer {
+  padding: 0 15% 20px;
+}
+
+.navigation nav ul {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.searching_section {
+  display: flex;
+  align-items: end;
+}
+
+.logo a {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.navigation_list_item {
+  font-size: 16px;
+  position: relative;
+  list-style: none;
+}
+
+.navigation_list_item a {
+  text-decoration: none;
+  color: black;
+}
+
+.active {
+  border-bottom: 1px solid #000;
+}
+
+form {
+  position: relative;
+}
+
+.input {
+  border: none;
+  background-color: #f5f5f5;
+  padding: 10px 70px 10px 20px;
+  border-radius: 4px;
+  margin-right: 24px;
+}
+
+.displayNone {
+  display: none;
+}
+
+.searching_btn {
+  border: none;
+  position: absolute;
+  z-index: 1;
+  left: 220px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.btnSection {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.like_btn,
+.cart_btn,
+.userBtn {
+  border: none;
+  background-color: transparent;
+  height: 35px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart_btn span,
+.like_btn span {
+  position: absolute;
+  z-index: 1;
+  height: 16px;
+  width: 16px;
+  background-color: #db4444;
+  border-radius: 50%;
+  color: #fafafa;
+  font-size: 12px;
+}
+
+.like_btn span {
+  right: 16px;
+  top: 0px;
+}
+
+.like_btn img {
+  width: 120%;
+}
+
+.userBtnPopup {
+  position: absolute;
+  right: 0px;
+  bottom: -55px;
+}
+
+.userBtnPopup::before {
+  position: relative;
+  bottom: -2px;
+  left: 75px;
+  content: "";
+  height: 10px;
+  width: 3px;
+  display: block;
+  border: 5px solid transparent;
+  border-bottom: 15px solid rgb(0, 0, 0);
+}
+
+.userBtnPopup button {
+  border: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  color: #f5f5f5;
+  background-color: rgb(0, 0, 0, 0.8);
+  cursor: pointer;
+  padding: 10px 10px 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userBtnPopup button:hover {
+  background-color: rgb(0, 0, 0);
+}
+

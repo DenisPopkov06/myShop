@@ -1,0 +1,86 @@
+.formContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 0 100px;
+  padding: 0 7.5%;
+}
+
+.infoFromBlock {
+  width: 370px;
+}
+
+.formTitle {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.formSubTitle {
+  font-size: 16px;
+  margin-bottom: 48px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.form input {
+  font-size: 16px;
+  outline: none;
+  border: none;
+}
+
+.form input:not(:focus) {
+  border-bottom: 1px solid rgb(0, 0, 0, 50%);
+}
+
+.form input:focus {
+  border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.formBtn {
+  background-color: #db4444;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  height: 56px;
+  padding: 0 48px;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.formBtn:hover{
+    background-color: #bd3232;
+}
+
+.formRegisterLink {
+  margin-bottom: 32px;
+  font-size: 16px;
+  color: #db4444;
+}
+
+.formLoginLink {
+  opacity: 70%;
+  font-weight: 500;
+  font-size: 16px;
+  border-bottom: 1px solid #000;
+}
+
+.formLoginBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.formRegisterBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}

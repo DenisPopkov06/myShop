@@ -1,0 +1,37 @@
+.category{
+    padding: 36px 16px 28vh 0;
+    border-right: 1px solid gray;
+    max-width: 240px;
+}
+
+.categories{
+    margin-bottom: 25px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.category_list_item{
+    list-style: none;
+    margin-top: 16px;
+    margin-right: 40px;
+    white-space: nowrap;
+}
+
+.category_list_item_btn{
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+.default button:hover{
+    background-color: gainsboro;
+}
+
+.active button{
+    background-color: #000;
+    color: #fff;
+}
+

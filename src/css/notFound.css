@@ -1,0 +1,29 @@
+.notFound-page {
+  text-align: center;
+  padding: 150px;
+  height: 90vh;
+}
+
+.notFound-title {
+  font-size: 70px;
+}
+
+.description {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.goBackBtn{
+  padding: 16px 48px;
+  border: none;
+  background-color: #DB4444;
+  border-radius: 4px;
+  margin-top: 80px;
+}
+
+.goBackBtn-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fafafa;
+  text-decoration: none;
+}

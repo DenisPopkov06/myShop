@@ -1,0 +1,47 @@
+.wishList{
+    min-height: 52vh;
+}
+
+.wishListCounter{
+    font-size: 20px;
+    margin: 95px 0 75px;
+}
+
+.wishItemsBlock{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 80px;
+    white-space: nowrap;
+}
+
+.wishItemsBlock__item{
+    width: 100%;
+}
+
+.RecomendProductTitle{
+    font-size: 20px;
+    position: relative;
+    margin: 95px 0 70px 30px;
+}
+
+.RecomendProductTitle::before{
+    content: "";
+    height: 100%;
+    width: 20px;
+    background-color: #DB4444;
+    display: block;
+    position: absolute;
+    border-radius: 4px;
+    left: -30px;
+}
+
+.noWish{
+    display: flex;
+    align-items:start;
+    justify-content: center;
+    font-size: 30px;
+}
+
