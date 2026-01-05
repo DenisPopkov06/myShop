@@ -4,10 +4,13 @@ import { setActive } from "../redux/slices/headerSlice";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { setUser } from "../redux/slices/userSlice";
 import Form from "../components/form/Form";
+import { useState } from "react";
+import Modal from "../modals/modal";
 
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState();
   dispatch(setActive("Sign Up"));
 
   const registerClick = (email, password) => {
@@ -25,10 +28,15 @@ const Register = () => {
         );
         navigate("/");
       })
-      .catch(() => alert("пользователь с таким email уже существует"));
+      .catch(() => setIsOpen(true));
   };
 
-  return <Form isRegister={true} handleClick={registerClick} />;
+  return (
+    <>
+      <Form isRegister={true} handleClick={registerClick} />
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen}><p>Пользователь с таким email уже существует</p></Modal>
+    </>
+  );
 };
 
 export default Register;
